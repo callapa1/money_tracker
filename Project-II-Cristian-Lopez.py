@@ -6,7 +6,7 @@ file = list[0]
 filename = list[1]
 selection = 0
 
-if file == '':
+if file == '' and filename == '':
     account = Account()
 else:
     account = process_file(file)
@@ -14,7 +14,7 @@ else:
 print("Welcome to TrackMoney")
 
 while selection == 0:
-    print(f"You have currently {account.get_balance()} kr on your account.")
+    print(f"\nYou have currently {account.get_balance()} kr in your account.")
 
     selection = get_main_selection()
 

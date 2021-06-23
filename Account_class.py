@@ -4,6 +4,7 @@ class Account:
         self.balance = 0
 
     def get_balance(self):
+        self.balance = 0
         for item in self.history:
             self.balance += item.amount
         return self.balance

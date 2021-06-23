@@ -1,1 +1,1 @@
-{"history": [{"title": "renta", "month": 1, "amount": -3500}, {"title": "arenta", "month": 6, "amount": -1600}, {"title": "salario", "month": 3, "amount": 40500}], "balance": 35400}
+{'history': [{'title': 'salario', 'month': 3, 'amount': 60000.0}, {'title': 'tele', 'month': 3, 'amount': -1520.0}, {'title': 'mouse', 'month': 4, 'amount': -900.0}, {'title': '-30000', 'month': 2, 'amount': -30000.0}], 'balance': 27580.0}

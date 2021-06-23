@@ -1,5 +1,4 @@
 from Account_class import Account
-import json
 from Colors_class import colors
 from Item_class import Item
 
@@ -37,7 +36,7 @@ def get_file():
         return [string, filename]
 
     elif selection == 2:
-        return ''
+        return ['','']
 
 def process_file(file):
     file = eval(file)
@@ -193,11 +192,27 @@ def new_item(item_type):
         return "remove"
 
     while type(amount) == str:
-        try:
-            amount = float(input(f"Enter the {item_type} amount: "))
-        except ValueError:
-            print("Enter only numbers separated by a dot.")
-            amount = ''
+        if item_type.lower() == "income":
+            try:
+                amount = float(input(f"Enter the {item_type} amount: "))
+                assert amount > 0
+            except ValueError:
+                print("Enter only numbers separated by a dot.")
+                amount = ''
+            except AssertionError:
+                print("Income must be a positive number")
+                amount = ''
+
+        elif item_type.lower() == "expense":
+            try:
+                amount = float(input(f"Enter the {item_type} amount: "))
+                assert amount < 0
+            except ValueError:
+                print("Enter only numbers separated by a dot.")
+                amount = ''
+            except AssertionError:
+                print("Expense must be a negative number")
+                amount = ''
 
     while month < 1 or month > 12:
         try:
@@ -236,12 +251,13 @@ def edit_function(account):
     account.full_show()
 
 # 4 SAVE AND QUIT
-def save_quit(account, file):
-    file_name = ''
-    if file == "":
-        file_name = input("Type your file name: ")
+def save_quit(account, filename):
+    new_filename = ''
+    if filename == '':
+        new_filename = input("Write your new filename: ")
     else:
-        file_name = file
+        new_filename = filename
+
     data = {}
     data['history'] = []
 
@@ -253,5 +269,6 @@ def save_quit(account, file):
             'amount': item.amount
         })
 
-    with open(f'{file_name}.txt', 'w') as outfile:
-        json.dump(data, outfile)
+    file = open(f'{new_filename}.txt', 'wt')
+    file.write(str(data))
+    file.close()
