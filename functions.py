@@ -63,7 +63,8 @@ def get_main_selection():
                f"({colors.VIOLET}1{colors.ENDC}) Show items (All{colors.BLUE}/{colors.ENDC}Expense(s){colors.BLUE}/{colors.ENDC}Income(s))",
                f"({colors.VIOLET}2{colors.ENDC}) Add New Expense{colors.BLUE}/{colors.ENDC}Income",
                f"({colors.VIOLET}3{colors.ENDC}) Edit Item (edit, remove)",
-               f"({colors.VIOLET}4{colors.ENDC}) Save and Quit"
+               f"({colors.VIOLET}4{colors.ENDC}) {colors.BOLD}Save{colors.ENDC} and Quit",
+               f"({colors.RED}5{colors.ENDC}) Quit without saving"
               ]
     options = [x+1 for x in range(len(txt_options))]
 
