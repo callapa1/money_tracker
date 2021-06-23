@@ -34,7 +34,7 @@ def get_file():
         string = file.read()
         file.close()
 
-        return string
+        return [string, filename]
 
     elif selection == 2:
         return ''

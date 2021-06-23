@@ -1,7 +1,9 @@
 from Account_class import Account
 from functions import *
 
-file = get_file()
+list = get_file()
+file = list[0]
+filename = list[1]
 selection = 0
 
 if file == '':
@@ -26,7 +28,7 @@ while selection == 0:
         edit_select = edit_function(account)
         selection = 0
     elif selection == 4:
-        save_quit(account, file)
+        save_quit(account, filename)
     elif selection == 5:
         break
 
