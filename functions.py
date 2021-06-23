@@ -181,6 +181,11 @@ def edit_function(account):
 
 # 4 SAVE AND QUIT
 def save_quit(account, file):
+    file_name = ''
+    if file == "":
+        file_name = input("Type your file name: ")
+    else:
+        file_name = file
     data = {}
     data['history'] = []
 
@@ -192,5 +197,5 @@ def save_quit(account, file):
             'amount': item.amount
         })
 
-    with open('data.txt', 'w') as outfile:
+    with open(f'{file_name}.txt', 'w') as outfile:
         json.dump(data, outfile)
