@@ -23,5 +23,5 @@ elif selection == 2:
 elif selection == 3:
     edit_select = edit_function(account)
 elif selection == 4:
-    pass
+    save_quit(account)
 print("\n", selection, " end")

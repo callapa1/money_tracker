@@ -10,7 +10,7 @@ class Account:
 
     def add_item(self, item):
         self.history.append(item)
-    
+
     def full_show(self):
         i = 1
         for item in self.history:
@@ -47,4 +47,3 @@ class Account:
         items = sorted(self.history, key=lambda item: item.month)[::-1]
         for item in items:
             item.describe()
-    

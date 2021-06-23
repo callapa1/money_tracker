@@ -1,3 +1,4 @@
+import json
 from Colors_class import colors
 from Item_class import Item
 
@@ -168,7 +169,7 @@ def edit_function(account):
         except ValueError:
             print("Enter a valid input")
             selection = 0
-    
+
     print("Type 'remove' in the title to remove the item instead")
     account.history[selection-1] = new_item('new')
     if account.history[selection-1] == "remove":
@@ -177,3 +178,19 @@ def edit_function(account):
     else:
         print("Item edited")
     account.full_show()
+
+# 4 SAVE AND QUIT
+def save_quit(account, file):
+    data = {}
+    data['history'] = []
+
+    data['balance'] = account.balance
+    for item in account.history:
+        data['history'].append({
+            'title': item.title,
+            'month': item.month,
+            'amount': item.amount
+        })
+
+    with open('data.txt', 'w') as outfile:
+        json.dump(data, outfile)
