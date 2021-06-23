@@ -4,7 +4,40 @@ from Item_class import Item
 
 # -1 GET FILE
 def get_file():
-    pass
+    file = 0
+    selection = -1
+    options = [1,2]
+    txt_options = ['Enter 1 to open a file',
+                   'Enter 2 to create a new file'
+                  ]
+
+    while selection not in options:
+        for txt in txt_options:
+            print(txt)
+        try:
+            selection = int(input("·"))
+            assert selection in options
+        except ValueError:
+            print("Enter a valid input")
+        except AssertionError:
+            print("Selection not valid")
+
+    if selection == 1:
+        while filename == 0:
+            filename = input("Enter your txt file name: ")
+            try:
+                file = open(f"{filename}.txt", "r")
+            except FileNotFoundError:
+                print("File not found")
+                filename = 0
+        string = file.read()
+        file.close()
+        
+        return string
+
+    elif selection == 2:
+        return ''
+
 # 0
 def get_main_selection():
     selection = -1
