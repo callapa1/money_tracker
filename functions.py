@@ -4,12 +4,12 @@ from Item_class import Item
 
 # -1 GET FILE
 def get_file():
-    file = 0
+    file = ""
     selection = -1
     options = [1,2]
+    filename = 0
     txt_options = ['Enter 1 to open a file',
-                   'Enter 2 to create a new file'
-                  ]
+                   'Enter 2 to create a new file']
 
     while selection not in options:
         for txt in txt_options:
@@ -39,7 +39,10 @@ def get_file():
         return ''
 
 def process_file(file):
-    pass
+    file = eval(file)
+    history = file['history']
+    balance = file['balance']
+
 # 0
 def get_main_selection():
     selection = -1
