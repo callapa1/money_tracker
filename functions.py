@@ -2,6 +2,10 @@ import json
 from Colors_class import colors
 from Item_class import Item
 
+# -1 GET FILE
+def get_file():
+    pass
+# 0
 def get_main_selection():
     selection = -1
     txt_options = ["Pick an option:",

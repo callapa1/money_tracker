@@ -1,0 +1,1 @@
+{"history": [{"title": "renta", "month": 1, "amount": -3500}, {"title": "arenta", "month": 6, "amount": -1600}, {"title": "salario", "month": 3, "amount": 40500}], "balance": 35400}
