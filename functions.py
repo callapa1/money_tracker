@@ -1,3 +1,4 @@
+from Account_class import Account
 import json
 from Colors_class import colors
 from Item_class import Item
@@ -42,6 +43,18 @@ def process_file(file):
     file = eval(file)
     history = file['history']
     balance = file['balance']
+
+    account = Account()
+    account.balance = balance
+
+    for item in history:
+        entry = Item(
+            item['title'],
+            item['amount'],
+            item['month']
+        )
+        account.history.append(entry)
+    return account
 
 # 0
 def get_main_selection():
