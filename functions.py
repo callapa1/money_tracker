@@ -194,7 +194,7 @@ def new_item(item_type):
     while type(amount) == str:
         if item_type.lower() == "income":
             try:
-                amount = float(input(f"Enter the {item_type} amount: "))
+                amount = float(input(f"Enter the {item_type} amount: {colors.GREEN}{colors.BOLD}+{colors.ENDC}"))
                 assert amount > 0
             except ValueError:
                 print("Enter only numbers separated by a dot.")
@@ -205,19 +205,18 @@ def new_item(item_type):
 
         elif item_type.lower() == "expense":
             try:
-                amount = float(input(f"Enter the {item_type} amount: "))
-                assert amount < 0
+                amount = float(input(f"Enter the {item_type} amount: {colors.RED}{colors.BOLD}-{colors.ENDC}"))
+                if amount > 0: amount = -amount
             except ValueError:
                 print("Enter only numbers separated by a dot.")
-                amount = ''
-            except AssertionError:
-                print("Expense must be a negative number")
                 amount = ''
 
     while month < 1 or month > 12:
         try:
             month = int(input(f"Enter the {item_type} month (1-12): "))
             assert 1 <= month <= 12
+        except ValueError:
+            print("Enter a number")
         except AssertionError:
             print("Enter a valid number of month (1-12)")
 
