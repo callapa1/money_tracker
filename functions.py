@@ -32,12 +32,14 @@ def get_file():
                 filename = 0
         string = file.read()
         file.close()
-        
+
         return string
 
     elif selection == 2:
         return ''
 
+def process_file(file):
+    pass
 # 0
 def get_main_selection():
     selection = -1

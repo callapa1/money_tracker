@@ -6,6 +6,7 @@ file = get_file()
 if file == '':
     account = Account()
 else:
+    process_file(file)
     account = 0
 
 print("Welcome to TrackMoney")
