@@ -29,7 +29,7 @@ def get_file():
 
     if selection == 1:
         while filename == 0:
-            filename = input("Enter your txt file name: ")
+            filename = input("Enter your txt file name: ").lower()
             try:
                 file = open(f"{filename}.txt", "r")
             except FileNotFoundError:
@@ -112,17 +112,17 @@ def show_function(account):
     show_select = show_by()
 
     if show_select == 1:
-        account.show_by_title()
+        account.show_by_title(selection)
     elif show_select == 2:
-        account.show_by_amount()
+        account.show_by_amount(selection)
     elif show_select == 3:
-        account.show_by_month()
+        account.show_by_month(selection)
     elif show_select == 4:
-        account.show_by_title_r()
+        account.show_by_title_r(selection)
     elif show_select == 5:
-        account.show_by_amount_r()
+        account.show_by_amount_r(selection)
     elif show_select == 6:
-        account.show_by_month_r()
+        account.show_by_month_r(selection)
 
 def show_by():
     selection = -1

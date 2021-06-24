@@ -19,8 +19,13 @@ class Account:
             item.describe()
             i += 1
 
-    def show_by_title(self):
+    def show_by_title(self, option):
+        # 1 = ALL, 2 = EXPENSES, 3 = INCOME
         items = sorted(self.history, key=lambda item: item.title)
+        if option == 2:
+            items = filter(lambda item: item.amount < 0, items)
+        elif option == 3:
+            items = filter(lambda item: item.amount > 0, items)
         for item in items:
             print("-", end=" ")
             item.describe()
