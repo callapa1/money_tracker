@@ -88,12 +88,12 @@ def get_main_selection():
 # 1 SHOW
 def show_function(account):
     selection = -1
-    options = {1:'All', 2:'Expense(s)', 3:'Income(s)'}
+    options = {1:'All', 2:'Expense(s)', 3:'Income(s)', 4:'Back'}
     txt_options = ["Pick an option:",
                 f"({colors.VIOLET}1{colors.ENDC}) Show All (BY Title{colors.BLUE}/{colors.ENDC}Amount{colors.BLUE}/{colors.ENDC}Month)",
                 f"({colors.VIOLET}2{colors.ENDC}) Show Expense(s) (BY Title{colors.BLUE}/{colors.ENDC}Amount{colors.BLUE}/{colors.ENDC}Month)",
-                f"({colors.VIOLET}3{colors.ENDC}) Show Income(s) (BY Title{colors.BLUE}/{colors.ENDC}Amount{colors.BLUE}/{colors.ENDC}Month)"
-                # f"({colors.VIOLET}4{colors.ENDC}) Back"
+                f"({colors.VIOLET}3{colors.ENDC}) Show Income(s) (BY Title{colors.BLUE}/{colors.ENDC}Amount{colors.BLUE}/{colors.ENDC}Month)",
+                f"({colors.VIOLET}4{colors.ENDC}) Back"
               ]
 
     while selection not in options.keys():
@@ -107,6 +107,7 @@ def show_function(account):
         except AssertionError:
             print("Selection not valid")
 
+    if selection == 4: return
     # Specify by title, amount or month
     print(f"Show {options[selection]}:")
     show_select = show_by()
