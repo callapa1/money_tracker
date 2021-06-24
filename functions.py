@@ -9,7 +9,7 @@ def welcome_text():
 
 # -1 GET FILE
 def get_file():
-    file = ""
+    file = ''
     selection = -1
     options = [1,2]
     filename = 0
@@ -27,21 +27,28 @@ def get_file():
         except AssertionError:
             print("Selection not valid")
 
-    if selection == 1:
-        while filename == 0:
-            filename = input("Enter your txt file name: ").lower()
-            try:
-                file = open(f"{filename}.txt", "r")
-            except FileNotFoundError:
-                print("File not found")
+        if selection == 1:
+            while filename == 0:
+                filename = input("Enter your txt file name or leave empty to go back: ").lower().strip()
+                if filename == '':
+                    selection = -1
+                    break
+                try:
+                    file = open(f"{filename}.txt", "r")
+                except FileNotFoundError:
+                    print("File not found")
+                    filename = 0
+
+            if file != '':
+                string = file.read()
+                file.close()
+                return [string, filename]
+            else:
                 filename = 0
-        string = file.read()
-        file.close()
+                continue
 
-        return [string, filename]
-
-    elif selection == 2:
-        return ['','']
+        elif selection == 2:
+            return ['','']
 
 def process_file(file):
     file = eval(file)
