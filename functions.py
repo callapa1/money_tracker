@@ -107,7 +107,7 @@ def show_function(account):
         except AssertionError:
             print("Selection not valid")
 
-    if selection == 4: return
+    if options[selection] == 'Back': return
     # Specify by title, amount or month
     print(f"Show {options[selection]}:")
     show_select = show_by()
@@ -152,11 +152,11 @@ def show_by():
 # 2 ADD
 def add_function(account):
     selection = -1
-    options = {1:'Expense', 2:'Income'}
+    options = {1:'Expense', 2:'Income', 3:'Back'}
     txt_options = [
                 f"({colors.VIOLET}1{colors.ENDC}) Add Expense",
-                f"({colors.VIOLET}2{colors.ENDC}) Add Income"
-                # f"({colors.VIOLET}4{colors.ENDC}) Back"
+                f"({colors.VIOLET}2{colors.ENDC}) Add Income",
+                f"({colors.VIOLET}3{colors.ENDC}) Back"
               ]
 
     while selection not in options.keys():
@@ -167,6 +167,8 @@ def add_function(account):
             assert selection in options.keys()
         except ValueError:
             print("Enter a valid option")
+    if options[selection] == 'Back': return
+
     add_item(selection, account)
 
 def add_item(selection, account):
