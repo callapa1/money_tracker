@@ -233,20 +233,23 @@ def new_item(item_type):
 
 # 3 EDIT
 def edit_function(account):
-    selection = 0
+    selection = -1
 
     print("Select entry to edit:")
+    print("Enter 0 to go Back")
     account.full_show()
-    while selection < 1 or selection > len(account.history):
+    while selection < 0 or selection > len(account.history):
         try:
             selection = int(input("Select the item: "))
-            assert 1 <= selection <= len(account.history)
+            assert 0 <= selection <= len(account.history)
         except AssertionError:
             print("Select an item from the list")
-            selection = 0
+            selection = -1
         except ValueError:
             print("Enter a valid input")
-            selection = 0
+            selection = -1
+
+    if selection == 0: return
 
     print("Type 'remove' in the title to remove the item instead")
     account.history[selection-1] = new_item('new')
