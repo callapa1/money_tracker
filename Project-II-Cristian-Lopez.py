@@ -11,7 +11,7 @@ if file == '' and filename == '':
 else:
     account = process_file(file)
 
-print("Welcome to TrackMoney")
+welcome_text()
 
 while selection == 0:
     print(f"\nYou have currently {account.get_balance()} kr in your account.")

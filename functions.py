@@ -2,6 +2,11 @@ from Account_class import Account
 from Colors_class import colors
 from Item_class import Item
 
+
+# -2 WELCOME
+def welcome_text():
+    print(f"{colors.CYAN}Welcome to TrackMoney{colors.ENDC}")
+
 # -1 GET FILE
 def get_file():
     file = ""
