@@ -1,3 +1,5 @@
+from Colors_class import colors
+
 class Account:
     def __init__(self):
         self.history = []
@@ -7,7 +9,13 @@ class Account:
         self.balance = 0
         for item in self.history:
             self.balance += item.amount
-        return self.balance
+        if self.balance > 0:
+            return f"{colors.GREEN}+{self.balance:.2f}{colors.ENDC}"
+        elif self.balance < 0:
+            return f"{colors.RED}+{self.balance:.2f}{colors.ENDC}"
+        else:
+            return self.balance
+
 
     def add_item(self, item):
         self.history.append(item)
