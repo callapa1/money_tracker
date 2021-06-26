@@ -1,3 +1,5 @@
+from Colors_class import colors
+
 class Item():
     def __init__(self, title, amount, month):
         self.title = title
@@ -5,4 +7,7 @@ class Item():
         self.amount = amount
 
     def describe(self):
-        print(f"{self.title}: {self.amount} kr, from month {self.month}")
+        if self.amount > 0:
+            print(f"{self.title}: {colors.GREEN}+{self.amount:.2f}{colors.ENDC} kr, from month {self.month}")
+        else:
+            print(f"{self.title}: {colors.RED}{self.amount:.2f}{colors.ENDC} kr, from month {self.month}")
